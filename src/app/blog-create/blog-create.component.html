@@ -1,0 +1,51 @@
+<!-- Below is the Loader Animation for Page Using NPM loader-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#0000CD"
+  type="timer">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<!-- Above is the Loader Animation for Page Using NPM loader-->
+
+<mat-toolbar>Click and Type The Blog Fields </mat-toolbar>
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field id="nameb">Blogger Name<hr>
+      <input
+        matInput
+        type="text"
+        name="name"
+        ngModel
+        required
+        minlength="3"
+        #name="ngModel">
+      <mat-error *ngIf="name.invalid">Please enter a Your Name.</mat-error>
+    </mat-form-field>
+    <mat-form-field id="title">Title<hr>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="3"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
+    </mat-form-field>
+    <mat-form-field id="content">Content<hr>
+      <textarea 
+        matInput
+        rows="4"
+        name="content"
+        ngModel
+        required
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>

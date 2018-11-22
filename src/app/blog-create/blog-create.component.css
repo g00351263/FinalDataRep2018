@@ -1,0 +1,15 @@
+
+mat-form-field{
+    background-color: greenyellow;
+  }
+  
+  mat-form-field,
+  textarea {
+    width: 100%;
+  }
+  #title{
+      background-color: aliceblue;
+  }
+  #nameb{
+      background-color: aquamarine;
+  }

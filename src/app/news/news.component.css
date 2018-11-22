@@ -1,0 +1,20 @@
+mat-toolbar{
+    background-color: greenyellow;
+  }
+p{
+    color: rgb(255, 2, 2);
+    font-size: 30px;
+}
+
+@-webkit-keyframes blinker {
+    from {opacity: 2.0;}
+    to {opacity: .80;}
+  }
+  #blink{
+      text-decoration: blink;
+      -webkit-animation-name: blinker;
+      -webkit-animation-duration: 1.0s;
+      -webkit-animation-iteration-count:infinite;
+      -webkit-animation-timing-function:ease-in-out;
+      -webkit-animation-direction: alternate;
+  }

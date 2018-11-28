@@ -20,7 +20,9 @@ export class PostService {
       return this.http2.get("https://newsapi.org/v2/top-headlines?sources=the-irish-times&apiKey=2a75bd92c42a4a7a922d6bf591e75b0d");          
     }
 
-
+    getPostsDataComic(): Observable<any> {
+      return this.http2.get("https://gateway.marvel.com:443/v1/public/characters?apikey=37fc7d944ef659c3cbb0ff7cb4412dbc");          
+    }
 
   addPost(name: string, title: string, content: string): Observable<any> {
     const post: Post = {name: name, title: title, content: content};

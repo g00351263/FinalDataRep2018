@@ -9,8 +9,8 @@ import { NgxSpinnerService } from 'ngx-spinner'; // loading animatin module load
 })
 export class NewsComponent implements OnInit {
 news: any[] = []; // array object to store json data coming from news api
-
-  constructor(private postserve: PostService, private spinner: NgxSpinnerService ) { } // depedency injections
+posts: any = [];
+  constructor(private ps: PostService, private postserve: PostService, private spinner: NgxSpinnerService ) { } // depedency injections
 
   ngOnInit() { // method loads with page
     
@@ -24,5 +24,17 @@ news: any[] = []; // array object to store json data coming from news api
     this.postserve.getPostsDataNews().subscribe(data => { // getting json data from newsApi
       this.news = data.articles;
   });
- }
+
+  this.ps.getPostsData().subscribe(data => {
+    this.posts = data;
+});
+}
+
+onDelete(id:String){
+ console.log("Delete called "+ id);
+ this.ps.deletePost(id).subscribe(() =>
+ {
+    this.ngOnInit();
+ })
+}
 }

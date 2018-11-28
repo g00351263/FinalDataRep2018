@@ -19,6 +19,26 @@
       <p>{{new.author}}</p>
       <p>{{new.source.name}}</p>
         <img src="{{new.urlToImage}}"/>
-
       <hr>
   </div>
+
+  <mat-toolbar><marquee direction="right">Blogs </marquee></mat-toolbar>
+  <mat-accordion multi="true" *ngIf="posts.length > 0">
+    <mat-expansion-panel [expanded]="true" *ngFor="let post of posts">
+      <mat-expansion-panel-header>
+       <p id="postName">Name:&nbsp;&nbsp;&nbsp;{{ post.name }}</p>
+      </mat-expansion-panel-header>
+      <mat-expansion-panel-header>
+        <p id="postTitle">Title:&nbsp;&nbsp;&nbsp;{{ post.title }}</p>
+       </mat-expansion-panel-header>
+      <p id="postContent">Content:<br> 
+      {{ post.content }}</p>
+      <hr>
+      <mat-action-row>
+        <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
+        <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p> 
+ 

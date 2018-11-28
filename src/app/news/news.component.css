@@ -1,6 +1,25 @@
 mat-toolbar{
     background-color: greenyellow;
   }
+
+  #mat-toolbar{
+    background-color: chartreuse;
+}
+#postName{
+    color: blueviolet;
+    background-color: white;
+}
+#postTitle{
+    color: blueviolet;
+    background-color: mistyrose;
+}
+#postContent{
+    color: blueviolet;
+    background-color: bisque;
+}
+mat-accordion{
+    background-color: beige;
+}
 p{
     color: rgb(255, 2, 2);
     font-size: 30px;

@@ -3,6 +3,7 @@
   <br><br>
  </div>
 
+ <!-- all following linking component pages with their short router name -->
  <div>
      <button mat-button [routerLink]="['post']">Check Blog</button>
    <button mat-button [routerLink]="['/create']">Post Blog</button>
@@ -11,8 +12,7 @@
    <button mat-button [routerLink]="['/login']">Log In</button>
    <button mat-button [routerLink]="['/signup']">Register</button>
  </div>
-  
- 
-
 <router-outlet></router-outlet>
+
+<!--moving animation of words-->
 <marquee style="font-family:Book Antiqua; font-size: 20px; color: #FFFFFF" bgcolor="#000080" scrolldelay="5">@ All Rights Reserved By Owner of The Project</marquee>

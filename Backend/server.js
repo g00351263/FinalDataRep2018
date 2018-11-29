@@ -4,9 +4,12 @@ var path = require('path');
 var bodyParser = require('body-parser');
 let request = require("request")
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://raja_pk_pk:2525154Abcde@ds053128.mlab.com:53128/rajablogpost';
+
+// connection to database //
+var mongoDB = 'mongodb://raja_pk_pk:2525154Abcde@ds053128.mlab.com:53128/rajablogpost'; 
 mongoose.connect(mongoDB);
 
+//database schema designs  for blog post//
 var Schema = mongoose.Schema;
 var postSchema = new Schema({
     name: String,
@@ -14,7 +17,17 @@ var postSchema = new Schema({
     content: String  
 })
 
+//database schema designs  for sign up//
+var Schema2 = mongoose.Schema;
+var postSchema2 = new Schema({
+    user: String,
+    pass: String
+})
+
+// creating collections of databases with the names //
 var PostModel = mongoose.model('post', postSchema);
+
+var PostModel2 = mongoose.model('signup', postSchema2);
 
 
 //Here we are configuring express to use body-parser as middle-ware. 
@@ -73,7 +86,19 @@ app.post('/api/posts', function(req, res){
 
 
 })
+////////////////////////////////////
+app.post('/api/signup', function(req, res){
+    console.log("User successful");
+    console.log(req.body.user);
+    console.log(req.body.pass);
 
+    PostModel2.create({
+        name: req.body.user,
+        pass: req.body.pass
+    });
+    res.send('user added');
+})
+/////////////////////////////////////
 app.get('/api/posts', function(req, res){
     PostModel.find(function(err, data){
         res.json(data);
